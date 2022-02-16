@@ -1,0 +1,61 @@
+﻿@model Res.Data.Entities.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CategoryName" class="control-label"></label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryImg" class="control-label"></label>
+                <input asp-for="CategoryImg" class="form-control" />
+                <span asp-validation-for="CategoryImg" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="IsDelete" class="control-label"></label>
+                <input asp-for="IsDelete" class="form-control" />
+                <span asp-validation-for="IsDelete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserAdd" class="control-label"></label>
+                <input asp-for="UserAdd" class="form-control" />
+                <span asp-validation-for="UserAdd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEdit" class="control-label"></label>
+                <input asp-for="UserEdit" class="form-control" />
+                <span asp-validation-for="UserEdit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateCreate" class="control-label"></label>
+                <input asp-for="DateCreate" class="form-control" />
+                <span asp-validation-for="DateCreate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateEdit" class="control-label"></label>
+                <input asp-for="DateEdit" class="form-control" />
+                <span asp-validation-for="DateEdit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

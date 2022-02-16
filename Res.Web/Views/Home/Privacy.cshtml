@@ -1,0 +1,283 @@
+﻿@model Res.Data.ViewModels.HomeVM
+
+@{
+    ViewData["Title"] = "Al-Nahda | Login";
+    Layout = null;
+}
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Utility
+@using Res.Data
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Al-Nahda | Login</title>
+    <script src="https://kit.fontawesome.com/99d5e885f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .Banner-Details {
+            font-weight: 500;
+            font-size: 17px;
+            background-color: #f44236;
+            color: #fff;
+            border-radius: 15px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            line-height: 15px;
+            margin-top: 30px;
+        }
+
+        .span-a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            border-bottom: 3px solid;
+        }
+
+        .Pass-input, .user-input {
+        }
+
+        .img-logo {
+            width: 135px;
+            height: 135px;
+            margin-top: 20px;
+        }
+
+        .a-hr {
+            margin-top: 10px;
+        }
+
+        .Pass-input {
+            margin-top: -10px;
+        }
+
+
+        #Free-inter-button {
+            width: 65%;
+            margin: 10px;
+            height: 37px;
+            border-radius: 5px;
+            font-weight: 500;
+            background-color: #218ae4;
+            border: 0px;
+            width: 90%;
+        }
+
+            #Free-inter-button:checked {
+                width: 65%;
+                margin: 10px;
+                height: 37px;
+                border-radius: 5px;
+                font-weight: 500;
+                background-color: #218ae4;
+                border: 0px;
+                width: 90%;
+            }
+
+         #login-Btn {
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 500;
+            background-color: #48a049;
+            border-radius: 8px;
+            border: 0px solid;
+        } 
+        /*250 and UP*/
+        @@media (min-width:100px) and (max-width:412px) {
+            .Banner-Details {
+                font-weight: 500;
+                font-size: 10px;
+                background-color: #f44236;
+                color: #fff;
+                border-radius: 15px;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                line-height: 7px;
+                margin-top: 15px;
+            }
+
+            .Free-inter-button {
+                font-size: 10px;
+            }
+            .mobile-hidden {
+                display: none
+            }
+            .Pass-input, .user-input {
+                font-size: 10px;
+            }
+            #login-Btn {
+                
+                font-size:10px;
+            } 
+        }
+        /*250 %*/
+        @@media (min-width:412px) and (max-width:600px) {
+            .Banner-Details {
+                font-weight: 500;
+                font-size: 10px;
+                background-color: #f44236;
+                color: #fff;
+                border-radius: 15px;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                line-height: 7px;
+                margin-top: 15px;
+            }
+
+            .Free-inter-button {
+                font-size: 10px;
+            }
+            .mobile-hidden{
+                display:none
+            }
+            .Pass-input, .user-input {
+                font-size: 10px;
+            }
+        }
+        /*200 %*/
+        @@media (min-width:600px) and (max-width:700px) {
+            .Banner-Details {
+                font-weight: 500;
+                font-size: 10px;
+                background-color: #f44236;
+                color: #fff;
+                border-radius: 15px;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                line-height: 7px;
+                margin-top: 15px;
+            }
+
+            .Free-inter-button {
+                font-size: 10px;
+                padding:4px;
+            }
+            .Pass-input, .user-input {
+                font-size: 10px;
+            }
+        }
+        /*175 %*/
+        @@media (min-width:700px) and (max-width:800px) {
+            .Banner-Details {
+                font-weight: 500;
+                font-size: 10px;
+                background-color: #f44236;
+                color: #fff;
+                border-radius: 15px;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                line-height: 7px;
+                margin-top: 15px;
+            }
+
+            .Free-inter-button {
+                width: 84%;
+                font-size: 12px;
+            }
+        }
+        /*150 %*/
+        @@media (min-width:800px) and (max-width:920px) {
+            .Banner-Details {
+                font-weight: 500;
+                font-size: 10px;
+                background-color: #f44236;
+                color: #fff;
+                border-radius: 15px;
+                padding-top: 13px;
+                padding-bottom: 13px;
+                line-height: 7px;
+                margin-top: 15px;
+            }
+
+            .a-hr {
+                font-size: 14px;
+                font-family: inherit;
+                margin-top: 5px;
+            }
+
+            .Pass-input, .user-input {
+                background: #58585a;
+                border-radius: 8px;
+                color: #fff;
+                text-align: center;
+                line-height: 15px;
+                font-size: 15px;
+            }
+
+            .img-logo {
+                width: 135px;
+                height: 135px;
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="~/WhatsApp Image 2022-02-10 at 3.46.02 PM.jpeg" class="img-logo" />
+                    </div>
+                    <div class="col-12 text-center">
+                        <p class="Banner-Details">
+                            قرطاسية    <span class="mobile-hidden">  - ادوات مكتبية -  </span>   <span class="mobile-hidden">ادوات مدرسية-   </span>  العاب - هدايا  <span class="mobile-hidden"> -  مطبوعات</span>
+
+
+                        </p>
+                    </div>
+
+                    <div class="col-12 text-center" style="">
+                        <div class="container_X" style="">
+                            <input type="button" value="   الانترنت المجاني _ اضغط هنا " id=" Free-inter-button" class="a-hr btn btn-success Free-inter-button" style=" background-color: #218ae4; border: 0px; width: 90%; " />
+
+                        </div>
+                        <br />
+
+                    </div>
+
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="inputs text-center">
+                            <form>
+
+                                <input type="tel" class="form-control user-input" value="User Name" style=" background: #58585a; border-radius: 8px; color: #fff; text-align: center;" />
+                                <br />
+                                <input type="tel" class="form-control Pass-input" value="Password" style=" background: #58585a; border-radius: 8px; color: #fff; text-align: center;" />
+
+                                <br />
+                                 
+                                <input type="submit" id="login-Btn" value="تسجيل الدخول " class="btn btn-secondary btn-secondary btn-block" style="color: #fff; background-color: #48a049;" />
+
+                            </form>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-2"></div>
+
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿@model Res.Data.ViewModels.BookingVM
+
+@{
+    var title = "Create";
+    
+}
+<style>
+    .btn-disable {
+        cursor: not-allowed;
+        pointer-events: none;
+        /*Button disabled - CSS color class*/
+        color: #c0c0c0;
+        background-color: #ffffff;
+    }
+</style>
+<hr />
+     <div class="col-md-4"> 
+            <span asp-validation-for="@Model.Booking.BookingTypeId" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.SpecialEventId" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.ProductsId" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.NumberOfPeopleId" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.BookingDate" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.FullName" class="text-danger"></span> 
+            <span asp-validation-for="@Model.Booking.PhoneNo" class="text-danger"></span> 
+</div>
+<!-- Reservation Start -->
+<div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row g-0">
+        <div class="col-md-6">
+            <div class="video">
+                <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6 bg-dark d-flex align-items-center">
+            <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
+                <h1 class="text-white mb-4">Book A Table Online</h1>
+
+                <form asp-action="BookingByUser">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" asp-for="@Model.Booking.FullName" class="form-control" id="name" placeholder="Your Full Name">
+                                <label for="name">Your Full Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" asp-for="@Model.Booking.PhoneNo" class="form-control" id="PhoneNo" placeholder="Your Phone No">
+                                <label for="email">Your Phone number</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <div class="form-floating">
+                                <select id="BookingType" onchange="getBookingType()" asp-for="@Model.Booking.BookingTypeId" class="form-control" asp-items="@Model.BookingTypeDrop" style=" background-color: #fff;">
+                                    <option value="0" selected> __ Select __</option>
+                                </select>
+                                <label for="name">Booking Type *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="@Model.Booking.SpecialEventId" class="form-control" asp-items="@Model.SpecialEventDrop" style=" background-color: #fff;">    <option value="0" selected> __ Select __</option></select>
+                                <label for="email">Select the Event</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="@Model.Booking.ProductsId" class="form-control" asp-items="@Model.ProductDrop" style=" background-color: #fff;">    <option value="0" selected> __ Select __</option></select>
+                                <label for="email">Select From Menu</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating date" id="date3" data-target-input="nearest">
+                                <input type="text" asp-for="@Model.Booking.BookingDate" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                <label for="datetime">Date & Time</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="@Model.Booking.NumberOfPeopleId" class="form-control" asp-items="@Model.NumberOfPeopleDrop" style=" background-color: #fff;">
+                                    <option selected>No Of People</option>
+                                </select>
+                                <label for="select1">No Of People</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" asp-for="@Model.Booking.Notes" placeholder="Notes" id="Notes" style="height: 100px"></textarea>
+                                <label for="message">Notes</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                            @*<input type="submit" value="Save" class="btn btn-primary" />*@
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 16:9 aspect ratio -->
+                <div class="ratio ratio-16x9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Reservation Start -->
+
+
+@section Scripts{
+
+    <script>
+
+        //document.getElementById("ProductsId").disabled = true;
+        //document.getElementById("SpecialEventId").disabled = true;
+         
+        document.addEventListener("DOMContentLoaded", function (event) {
+       
+        $('#ProductsId').attr('disabled', true);
+        $('#SpecialEventId').attr('disabled', true);
+        function getBookingType() {
+            var x = document.getElementById("BookingType").value;
+            console.log(x);
+
+            if (x == 1) {
+                document.getElementById("ProductsId").disabled = true;
+                document.getElementById("SpecialEventId").disabled = true;
+            }
+            else if (x == 2) {
+                document.getElementById("ProductsId").disabled = false;
+            }
+            else if (x == 3) {
+                //document.getElementById("ProductsId").style.display = "block";
+                document.getElementById("SpecialEventId").disabled = false;
+            }
+            else {
+                document.getElementById("ProductsId").disabled = false;
+                document.getElementById("SpecialEventId").disabled = false;
+            }
+        }
+
+    </script>
+
+
+}   @*@if (Model.Booking.Id != 0)
+    {
+        title = "Edit Product";
+        <input asp-for="Booking.Id" hidden />
+    }*@

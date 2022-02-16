@@ -1,0 +1,169 @@
+﻿@model Res.Data.ViewModels.CartVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .bg-light {
+        background-color: #dee2e6 !important;
+    }
+
+    .btn-Con_Shopping {
+        margin: 3px;
+        background-color: #0F172B;
+        border-color: #0F172B;
+        color: #fff;
+        font-weight: 600;
+    }
+
+        .btn-Con_Shopping:hover {
+            background-color: #FEA116;
+            border-color: #FEA116;
+            color: #fff;
+            font-weight: 600;
+        }
+
+    .disButton {
+        cursor: revert;
+        opacity: 0.4;
+    }
+</style>
+
+
+<div class="container">
+    <!-- Start -->
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="border-0 bg-light">
+                        <div class="p-2 px-3 text-uppercase">Product</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Price</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Quantity</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Total Price</div>
+                    </th>
+                    <th scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Remove</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.ShoppingCartList.Count() > 0)
+                {
+                    @foreach (var obj in Model.ProductList)
+                    {
+                        @foreach (var item in Model.ShoppingCartList)
+                        {
+
+                            @if (item.ProductId == obj.Id)
+                            {
+                                <tr>
+                                    <th scope="row" class="border-0">
+                                        <div class="p-2">
+                                            <img src="@Utility.WC.ImagePath@obj.ProductImg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">@obj.Name</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: @obj.Category.CategoryName</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="border-0 align-middle"><strong>@string.Format("{0:c0}", obj.Price)</strong></td>
+                                    <td class="border-0 align-middle">
+                                        <strong>
+
+                                            @item.Quantity
+                                           
+                                        </strong>
+                                    </td>
+                                    <td class="border-0 align-middle"><strong>@( item.Quantity * obj.Price)   </strong></td>
+                                    <td class="border-0 align-middle"><a asp-action="Remove" asp-route-id="@obj.Id" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                                </tr>
+                            }
+                        }
+                        }
+
+                    }
+                else
+                {
+                    <tr>
+                        <p>Please add items to cart.</p>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- End -->
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-10 text-center">
+
+                    @if (Model.ShoppingCartList.Count() > 0)
+                    {
+                        <a asp-action="MenuItem" asp-controller="Products" class="btn btn-Con_Shopping py-2 px-4" style=" margin: 3px;">Continue Shopping</a>
+                        <a asp-action="Summary" asp-controller="Cart" class="btn btn-primary py-2 px-4" style=" margin: 3px;">Continue</a>
+
+                    }
+                    else
+                    {
+
+                        <a asp-action="MenuItem" asp-controller="Products" class="btn btn-Con_Shopping py-2 px-4" style=" margin: 3px;">Continue Shopping</a>
+                        <p asp-action="Summary" asp-controller="Cart" class="btn btn-primary disButton  py-2 px-4" id="Continuebutton" style=" margin: 3px;">Continue</p>
+
+                    }
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+@section Scripts{
+
+    <script>
+
+
+    </script>
+
+
+}
+
+
+
+
+
+
+
+

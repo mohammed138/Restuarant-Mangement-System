@@ -1,0 +1,55 @@
+﻿<!--@model Res.Data.ViewModels.HomeVM
+
+@{
+    ViewData["Title"] = "Restaurant | MENU";
+}-->
+
+
+<!-- Menu Start -->
+<!--<div class="container-xxl py-5">
+    <div class="text-center">
+        <button class="btn btn-dark filter-button" data-filter="all">All</button>
+        @foreach (var obj in Model.Category)
+        {
+            <button class="btn btn-outline-secondary filter-button" data-filter="@obj.CategoryName.Replace(' ','_')">
+                @obj.CategoryName
+            </button>}
+    </div>
+
+     
+   <div class="row ">
+                <div class="row g-4">
+                    @foreach (var itemId2 in Model.ProductList)
+                    {
+                        <partial name="_IndividualMealsProductCard" model="itemId2" />
+                    } 
+                </div>
+            </div>
+           
+      
+    
+    
+    </div>-->
+    <!-- Menu End -->
+
+
+    <!-- section Scripts{
+        <script>$(document).ready(function(){
+
+    $(".filter-button").click(function(){
+
+        var value = $(this).attr('data-filter');
+        if(value == "all")
+        {
+            $('.filter').show('1000');
+        }
+        else
+        {
+            $(".filter").not('.'+value).hide('3000');
+            $('.filter').filter('.'+value).show('3000');
+
+        }
+    });
+
+});</script>
+    }-->

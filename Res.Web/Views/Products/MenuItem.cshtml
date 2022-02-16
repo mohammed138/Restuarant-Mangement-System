@@ -1,0 +1,240 @@
+﻿
+
+@model Res.Data.ViewModels.HomeVM
+@{
+    ViewData["Title"] = "Res | Menu";
+
+}
+<style>
+    body {
+        margin: 0;
+        font-family: "Heebo",sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #666565;
+        background-color: #fff;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+</style>
+<!-- Menu Start -->
+<div class="container-xxl py-5" style=" background-color: #fff;">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal" style="font-size: 30px; margin-bottom: 40px;">Food Menu</h5>
+            @*<h1 class="mb-5">Most Popular Items</h1>*@
+        </div>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+            <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-Sandwiches">
+                        <i class="fa fa-coffee fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Sandwiches</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-Meals">
+                        <i class="fa fa-hamburger fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Meals</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-Dessert">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Dessert</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3 " data-bs-toggle="pill" href="#tab-Drinks">
+                        <i class="fa fa-coffee fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Drinks</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-Hookah">
+                        <i class="fa fa-hamburger fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Hookah</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-SpecialRequests">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body"> </small>
+                            <h6 class="mt-n1 mb-0">Special Requests</h6>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-Sandwiches" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+
+                        @foreach (var item in Model.ProductbySandwiches)
+                        {
+                            <div class="col-lg-6">
+                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>@item.Name</span>
+                                                <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                            </h5>
+                                            <small class="fst-italic">@item.ShortDes</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div id="tab-Meals" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        @foreach (var item in Model.ProductbyMeals)
+                        {
+                            <div class="col-lg-6">
+                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>@item.Name</span>
+                                                <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                            </h5>
+                                            <small class="fst-italic">@item.ShortDes</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="tab-Dessert" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        @foreach (var item in Model.ProductbyDessert)
+                        {
+                            <div class="col-lg-6">
+                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>@item.Name</span>
+                                                <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                            </h5>
+                                            <small class="fst-italic">@item.ShortDes</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="tab-Drinks" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        @foreach (var item in Model.ProductbyDrinks)
+                        {
+                            <div class="col-lg-6">
+                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>@item.Name</span>
+                                                <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                            </h5>
+                                            <small class="fst-italic">@item.ShortDes</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="tab-Hookah" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        @if (Model.ProductbyHookah.Count() > 0)
+                        {
+                            @foreach (var item in Model.ProductbyHookah)
+                            {
+                                <div class="col-lg-6">
+                                    <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                        <div class="d-flex align-items-center">
+                                            <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                            <div class="w-100 d-flex flex-column text-start ps-4">
+                                                <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                    <span>@item.Name</span>
+                                                    <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                                </h5>
+                                                <small class="fst-italic">@item.ShortDes</small>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+
+
+                        }
+                        else
+                        {
+                            <div class="col-lg-12">
+                                <div class="d-flex align-items-center">
+                                    <img class="flex-shrink-0 img-fluid rounded" alt="" style="width: 80px;">
+                                    <div class="w-100 d-flex flex-column text-start ps-4">
+                                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                            <span>Sorry No Item Here</span>
+                                            <span class="text-primary"> </span>
+                                        </h5>
+                                        <small class="fst-italic"> </small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div id="tab-SpecialRequests" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        @foreach (var item in Model.ProductSpecialRequests)
+                        {
+                            <div class="col-lg-6">
+                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">
+                                    <div class="d-flex align-items-center">
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Utility.WC.ImagePath@item.ProductImg" alt="" style="width: 80px;">
+                                        <div class="w-100 d-flex flex-column text-start ps-4">
+                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                                <span>@item.Name</span>
+                                                <span class="text-primary">@string.Format("{0:c0}", @item.Price)</span>
+                                            </h5>
+                                            <small class="fst-italic">@item.ShortDes</small>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Menu End -->

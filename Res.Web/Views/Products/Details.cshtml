@@ -1,0 +1,354 @@
+﻿@model Res.Data.ViewModels.HomeVM
+
+@{
+    ViewData["Title"] = "Pal | Product Details";
+    Layout = null;
+}
+
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Utility
+@using Res.Data
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pal | Product Details </title>
+    <script src="https://kit.fontawesome.com/99d5e885f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=hanimation" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=dubai-bold" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet">
+
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+    <style>
+        .Products-Name-D {
+            font-size: 18px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 25px;
+            letter-spacing: -0.04ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .Products-Description-D {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(118, 118, 118);
+            margin: 0px;
+            padding: 0px;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            max-height: 40px;
+            white-space: normal;
+        }
+
+        .Products-Price-D {
+            font-size: 18px;
+            padding-top: 10px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 25px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(73, 73, 73);
+            margin: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+        }
+ 
+
+    </style>
+  
+    <style>
+        #Label {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: -0.04ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin-top: 4px;
+        }
+        .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+            margin-left: -1px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border: 0px solid;
+        }
+        .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 0px solid;
+        }
+        .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) :hover {
+            margin-left: -1px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border: 0px solid;
+        }
+
+        .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) :hover{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 0px solid;
+        }
+
+    </style>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/NewFolder/node_modules/prismjs/themes/prism-tomorrow.css" />
+    <style type="text/css">
+
+        .input-group, input.test-value-input {
+            max-width: 250px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="~/NewFolder/src/bootstrap-input-spinner.js"></script>
+    <script src="~/NewFolder/src/custom-editors.js"></script>
+    <script src="~/NewFolder/node_modules/prismjs/prism.js"></script>
+</head>
+<body data-spy="scroll" data-target="#Res-Menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="#" style=" padding: 10px; font-weight: 600; font-size: 21px;">Restuarent </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    @if (HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart) != null)
+                    {
+                        <a class="nav-link Shopping_Cart" asp-action="Index" asp-controller="Cart">
+                            @{ var count = HttpContextAccessor.HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart).Count; }
+                            <i class="fas fa-shopping-cart" style="color: #fff; padding-left: 12px;"></i> &nbsp; <span style="color: #fff; padding-right: 12px;">(@count)</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="nav-link Shopping_Cart" asp-action="Index" asp-controller="Cart">
+                            <i class="fas fa-shopping-cart" style="color: #fff; padding-left: 12px;"></i> &nbsp; <span style="color: #fff; padding-right: 12px;">(0)</span>
+                        </a>
+
+                    }
+
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="col-md-9">
+                <div class="row">
+                    <br /><br />  <br />
+                    <div class="col-12">
+                        <div class="row">
+
+                            <div class="col-md-4" style="padding-top: 40px; border-top: 2px solid rgb(214, 214, 214);">
+                                <img style=" height: 245px; width: 80%; border-radius: 118px;" class="card-img-top img-fluid d-block mx-auto mb-3" src="@WC.ImagePath@Model.Product.ProductImg" alt="Card image cap">
+                            </div>
+                            <div class="col-md-8" style="padding-top: 40px;   border-top: 2px solid rgb(214, 214, 214); ">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <h3 class="Products-Name-D"> @Model.Product.Name</h3>
+                                        <p class="Products-Description-D"> Category :   @Model.Product.Category.CategoryName</p>
+                                        <p class="Products-Description-D"> @Model.Product.ShortDes</p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="Products-Price-D">@string.Format("{0:c0}", Model.Product.Price)</p>
+                                    </div>
+
+
+                                    <div class="col-12" style="padding:15px;">
+                                        <br />
+                                        <form asp-action="Buy" asp-controller="Cart" method="post">
+                                            <input type="hidden" asp-for="@Model.Product.Id" />
+                                            <div class="form-group row">
+                                                <div class="col-md-2">
+                                                    <label id="Label" style="">Quantity</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <p>
+                                                        <input type="number" asp-for="@Model.ShoppingCart.Quantity" value="1" min="1" max="1000" step="1" style="text-align: center; background-color: #e7e7e7; border-radius: 6px;border:1px solid" />
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
+
+                                            <button type="submit" class="form-control btn-lg Checkout_class" style="background-color: #eb5545; height: 50px; padding: 9px; border-radius: 40px; color: #fff; "> Add to Cart</button>
+
+
+
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-md-3" style="border-left: 2px solid rgb(214, 214, 214); border-top: 2px solid rgb(214, 214, 214); ">
+
+                @if (Model.ShoppingCartList.Count() > 0)
+                {
+                    <div class="Checkout row" style="background-color: #eb5545;">
+                        <div class="col-6 text-left Checkout_class">Checkout</div>
+                        <div class="col-6 text-right Checkout_class"> $ @Model.TotalAmount  </div>
+                    </div>
+                    <div id="Hr-Bottom" style=""></div>
+                    <br />
+                    @foreach (var obj in Model.ProductList)
+                    {
+                        @foreach (var item in Model.ShoppingCartList)
+                        {
+                            @if (item.ProductId == obj.Id)
+                            {
+                                <div class="row Pro_informmation">
+                                    <div class="col-md-3">
+
+                                        <img src="@Utility.WC.ImagePath@obj.ProductImg" style="animation: 0.3s ease-in 0s 1 normal none running hlQDSK; height: 60px; width: 60px; margin-left: -16px; overflow: hidden; border-radius: 47px; margin-left: 0px;" />
+                                        <div class="bottom-left" style="position: absolute; bottom: 15px; left: 13px; background-color: black; color: #fff; font-weight: 700; border-radius: 33px; font-size: 11px; padding: 5px; ">x @item.Quantity</div>
+
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <p class="Product_Item"> @obj.Name</p>
+                                                <p class="Product_ItemPrice">$ @( item.Quantity * obj.Price)</p>
+                                            </div>
+                                            <div class="col-md-2 DeleteBtn">
+
+                                                <i class="fas fa-trash"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Hr-Bottom"></div>
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    <div class="col-md-3">
+                        <div class="sc-bxivhb emnxOe" size="16">
+                            <div class="sc-ccLTTT hgqKUl">
+                                <svg height="188px" width="245px" x="0px" y="0px" viewBox="0 0 245 188">
+                                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="71.455" y1="165.089" x2="192.844" y2="165.089"></line>
+                                    <path fill="#f5f5f5" d="M216.727,132.641L48.052,120.447c-2.056-0.149-3.602-1.936-3.453-3.992l6.549-90.6 c0.149-2.056,1.936-3.602,3.992-3.453l168.675,12.193c2.056,0.149,3.602,1.936,3.453,3.992l-6.549,90.6 C220.57,131.243,218.783,132.789,216.727,132.641z"></path>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.691 8.2899)" fill="#fff" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="122.079" cy="120.972" rx="56.622" ry="56.622"></ellipse>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -1.8699 11.8092)" fill="#fff" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="178.449" cy="34.309" rx="24.308" ry="24.308"></ellipse>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.691 8.2899)" fill="#e1e2e3" cx="122.079" cy="120.972" rx="44.116" ry="44.116"></ellipse>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -1.8709 11.7787)" fill="#dbdcdd" cx="177.984" cy="34.309" rx="14.859" ry="14.859"></ellipse>
+                                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.063" y1="142.031" x2="111.25" y2="129.708"></line>
+                                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="100.04" y1="126.498" x2="106.806" y2="117.905"></line>
+                                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="93.493" y1="119.88" x2="100.259" y2="111.288"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="112.111" y1="128.837" x2="115.494" y2="124.541"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="106.435" y1="149.374" x2="116.793" y2="136.189"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="96.533" y1="147.463" x2="103.299" y2="138.87"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="91.062" y1="138.616" x2="104.551" y2="120.781"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="86.728" y1="128.473" x2="93.493" y2="119.88"></line>
+                                    <path fill="#fff" d="M118.151,87.414L118.151,87.414l-7.928,5.705l0.156,0.682c-2.005,2.087-2.971,4.953-2.319,7.798  c0.823,3.594,3.979,6.1,7.731,6.556l4.934,1.195c0.828,0.284,1.692,0.496,2.581,0.625l0.013,0.003l0-0.001 c1.763,0.255,3.624,0.194,5.496-0.234c7.448-1.706,12.229-8.576,10.679-15.344c-1.55-6.769-8.845-10.873-16.293-9.167 C121.329,85.661,119.627,86.417,118.151,87.414z"></path>
+                                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="85.806" y1="114.491" x2="92.572" y2="105.898"></line>
+                                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="90.971" y1="107.727" x2="101.61" y2="94.701"></line>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -6.1314 8.5654)" fill="none" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="127.045" cy="97.419" rx="5.44" ry="5.44"></ellipse>
+                                    <line fill="#464646" stroke="#e8e8e8" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="10" y1="87.846" x2="125.988" y2="39.952"></line>
+                                    <line fill="#464646" stroke="#e8e8e8" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12.984" y1="94.287" x2="128.972" y2="46.392"></line>
+                                    <rect x="131.383" y="126.172" transform="matrix(0.8169 0.5768 -0.5768 0.8169 106.0643 -53.8047)" fill="none" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="12.767" height="27.922"></rect>
+                                    <polygon fill="#e1e2e3" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="134.875,136.109 127.726,125.53 150.86,109.896 158.009,120.474 "></polygon>
+                                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.636 2.7278)" fill="none" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="37.618" cy="117.356" rx="7.819" ry="7.819"></ellipse>
+                                    <path fill="#dddedf" d="M63.732,52.293l-40.911-7.601c-1.614-0.3-2.68-1.851-2.38-3.466l2.824-15.199 c0.3-1.614,1.851-2.68,3.466-2.38l40.911,7.601c1.614,0.3,2.68,1.851,2.38,3.466l-2.824,15.199 C66.898,51.527,65.346,52.593,63.732,52.293z"></path>
+                                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="29.798" y1="46.215" x2="33.644" y2="25.158"></line>
+                                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="39.354" y1="48.498" x2="43.199" y2="27.442"></line>
+                                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="48.909" y1="49.563" x2="52.755" y2="28.506"></line>
+                                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="58.465" y1="51.846" x2="62.31" y2="30.789"></line>
+                                    <circle fill="#eaeaea" cx="48.883" cy="140.16" r="3.631"></circle>
+                                    <circle fill="#eaeaea" cx="200.121" cy="96.085" r="3.631"></circle>
+                                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="204.456" y1="77.307" x2="235" y2="77.307"></line>
+                                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="184.849" y1="151.705" x2="200.121" y2="151.705"></line>
+                                </svg>
+                            </div>
+                            <span class="sc-bdVaJa ekbGRa" display="block">Your cart is empty</span>
+                            <span class="sc-bdVaJa ekbGRa" display="block">Add items to get started</span>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div> 
+    <script>
+        $("input[type='number']").inputSpinner()
+        $(".buttons-only").inputSpinner({ buttonsOnly: true, autoInterval: undefined })
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

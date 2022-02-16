@@ -1,0 +1,902 @@
+﻿
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Order Online | Checkout</title>
+    <script src="https://kit.fontawesome.com/99d5e885f9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=hanimation" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&family=Tajawal:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://www.fontstatic.com/f=dubai-bold" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap" rel="stylesheet">
+    <style>
+        .PaceOrder_Button {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            min-height: 40px;
+            border-radius: 20px;
+        }
+
+        .Details {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+        }
+
+        .description_terms {
+            font-size: 14px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(118, 118, 118);
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        .eeWoPH > * + * {
+            margin-top: 32px !important;
+        }
+        /*        #b2b2b2  for disabled button  */
+        .gkvmHV {
+            max-width: 100%;
+        }
+
+            .gkvmHV > * + * {
+                margin-top: 8px !important;
+            }
+
+        .ibvcRf {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            text-decoration: none;
+            appearance: none;
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            text-align: inherit;
+            display: block;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            outline: none !important;
+        }
+
+        .bJthjP {
+            max-width: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto auto auto;
+            grid-template-columns: 1fr auto;
+            column-gap: 20px;
+        }
+
+        .kSWlUm {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            overflow: hidden;
+            flex-basis: 100%;
+            grid-area: 2 / 1 / auto / auto;
+        }
+
+        .cKetko {
+            font-size: 18px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: -0.04ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            text-align: left;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .kJIDRN {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .keeDgr {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+        }
+
+        .ibvcRf {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            text-decoration: none;
+            appearance: none;
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            text-align: inherit;
+            display: block;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            outline: none !important;
+        }
+
+        .bJthjP {
+            max-width: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto auto auto;
+            grid-template-columns: 1fr auto;
+            column-gap: 20px;
+        }
+
+        .kSWlUm {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            overflow: hidden;
+            flex-basis: 100%;
+            grid-area: 2 / 1 / auto / auto;
+        }
+
+        .sKIzW {
+            grid-area: 2 / 2 / auto / auto;
+            flex-shrink: 0;
+            line-height: 0;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .jxvmAj {
+            grid-area: -1 / 1 / auto / -1;
+            margin: 15px -16px -16px 0px;
+        }
+
+        .cKetko {
+            font-size: 18px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: -0.04ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            text-align: left;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .kJIDRN {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .kJIDRN {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+        }
+
+        .sKIzW {
+            grid-area: 2 / 2 / auto / auto;
+            flex-shrink: 0;
+            line-height: 0;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            margin: 0px;
+        }
+
+        .jxvmAj {
+            grid-area: -1 / 1 / auto / -1;
+            margin: 15px -16px -16px 0px;
+        }
+
+        .lptyCu {
+            width: 100%;
+            padding-left: 0px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .bjltfp {
+            display: block;
+            width: 100%;
+            margin: 0px;
+            border: none;
+            height: 1px;
+            background: rgb(231, 231, 231);
+        }
+
+        .eYVlwT {
+            max-width: 100%;
+            display: flex;
+            -webkit-box-align: stretch;
+            align-items: stretch;
+            -webkit-box-pack: end;
+            justify-content: flex-end;
+        }
+
+        .bIZNHb {
+            position: relative;
+            max-width: 100%;
+            margin: 0px;
+            padding: 0px;
+            display: inline-flex;
+            width: auto;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: start;
+            justify-content: flex-start;
+            border-radius: 1000px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+            user-select: none;
+            text-decoration: none;
+            text-align: center;
+            background-color: transparent;
+            box-shadow: rgb(165 211 242 / 0%) 0px 0px 0px 3px;
+            color: rgb(235, 85, 69);
+        }
+
+            .bIZNHb * {
+                transition: color 0.15s ease-in-out 0s;
+            }
+
+        .NOdNn {
+            max-width: 100%;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+        .iRcDeh {
+            -webkit-box-flex: 2;
+            flex-grow: 2;
+            min-width: 0px;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+        }
+
+            .iRcDeh > * {
+                width: 100%;
+            }
+    </style>
+    <style>
+        .button_ListItem {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            text-decoration: none;
+            appearance: none;
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            text-align: inherit;
+            display: block;
+            width: 100%;
+            background: rgb(255, 255, 255);
+            outline: none !important;
+        }
+
+        .arranging {
+            max-width: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-rows: auto auto auto;
+            grid-template-columns: auto 1fr auto;
+            column-gap: 20px;
+            padding: 16px;
+        }
+
+        .Product_Item {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin: 0px;
+            padding: 0px;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            max-height: 44px;
+            white-space: normal;
+        }
+
+        .Product_ItemPrice {
+            font-size: 14px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin-top: 5px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+        }
+
+        .DeleteBtn:hover {
+            background-color: rgb(255, 255, 255);
+            box-shadow: transparent 0px 0px 0px 1px inset;
+            color: rgb(73, 73, 73);
+        }
+
+        .Pro_informmation:hover {
+            background: #efefef;
+            border: none;
+            padding: 4px;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            border-radius: 9px;
+            text-align: inherit;
+        }
+
+        .Pro_informmation {
+            border: none;
+            padding: 4px;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            border-radius: 9px;
+            text-align: inherit;
+            background: rgb(255, 255, 255);
+        }
+
+
+        #Hr-Bottom {
+            height: 1px;
+            width: 100%;
+            background-color: rgb(231, 231, 231);
+        }
+
+        .Checkout_class {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .Checkout {
+            background-color: #eb5545;
+            padding: 12px;
+            border-radius: 40px;
+            color: #fff;
+            margin-top: 20px;
+            margin-left: 2px;
+            margin-right: 2px;
+        }
+        .lable {
+            font-size: 18px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 24px;
+            letter-spacing: -0.04ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            margin: 0px;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+        }
+        .label_inputs {
+            margin-top: 10px;
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: 0ch;
+            text-transform: none;
+            color: rgb(25, 25, 25);
+            text-align: left;
+            padding: 0px;
+            display: block;
+            font-variant-ligatures: no-common-ligatures;
+            margin-bottom: 10px;
+        }
+        .form-control_input {
+            line-height: 40px;
+            letter-spacing: 0ch;
+            font-weight: 500;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            color: rgb(25, 25, 25);
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            width: 100%;
+            border-radius: 8px;
+            z-index: 1;
+            padding: 0px 12px;
+            border: none;
+            box-shadow: rgb(247 247 247) 0px 0px 0px 1px inset;
+            background-color: rgb(247, 247, 247);
+        }
+        .Pay_M {
+            font-size: 16px;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-weight: 700;
+            line-height: 22px;
+            letter-spacing: -0.04ch;
+            color: rgb(25, 25, 25);
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target="#Res-Menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <a class="navbar-brand" href="#" style=" padding: 10px; font-weight: 600; font-size: 21px;">Restuarent </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link Shopping_Cart" href="javascript:void(0)"><i class="fas fa-shopping-cart" style="color: #fff; padding-left: 12px;"></i> &nbsp; <span style="color: #fff; padding-right: 12px;">(0)</span> </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+            <div class="col-md-9" style="border-top: 2px solid rgb(214, 214, 214); ">
+                <div class="row">
+                    <br />
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <br />   <br />
+                            <div class="col-md-4" style="padding: 20px 0px;">
+                                <p class="lable">
+                                    Delivery Details
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="padding: 20px 0px;">
+                                <div class="DeliveryAddress row">
+                                    <div class="col-10">
+                                        <p> Address Name</p>
+                                        <p>Leave it at home door</p>
+                                    </div>
+                                    <div class="col-2"><i class="fas fa-arrow-right"></i> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio"
+                                                   class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">
+                                                Delivery ASAP
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+
+
+                                        Unavailable
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio"
+                                                   class="custom-control-input" checked>
+                                            <label class="custom-control-label" for="customRadio2">
+                                                Schedule Delivery
+                                            </label>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-6">
+                                        Choose a time
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Hr-Bottom" style=" height: 1px; width: 100%; background-color: rgb(231, 231, 231);"></div>
+
+
+                            <div class="col-md-4" style="padding: 20px 0px;">
+                                <p class="lable">Contact and Payment</p>
+                            </div>
+                            <div class="col-md-8" style="padding: 20px 0px;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label label_inputs">First Name</label>
+                                            <input class="form-control_input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label label_inputs">Last Name</label>
+                                            <input class="form-control_input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label label_inputs">Country</label>
+                                            <input class="form-control_input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="control-label label_inputs">Phone Number</label>
+                                            <input class="form-control_input" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label label_inputs">Email</label>
+                                            <input class="form-control_input" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 text-left">
+                                        <br />
+                                        <p class="Pay_M">  Payment Methods </p>
+                                        <p class="Pay_M"> Add New Payment Method</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="sc-htpNat gkvmHV" size="8">  
+                                            <div>
+                                                <button class="sc-iERxws ibvcRf" role="radio" data-anchor-id="PaymentMethodAdd">
+                                                    <div class="sc-GMQeP bJthjP sc-bxivhb emnxOe" size="16">
+                                                        <div class="sc-exAgwC kSWlUm sc-htpNat dHgfLi">
+                                                            <span class="sc-bdVaJa cKetko" display="block">
+                                                                <div class="sc-jVODtj kJIDRN">
+                                                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="false" style="flex-shrink: 0;">
+                                                                        <title>Show Menu</title>
+                                                                        <g clip-path="url(#clip0_292_352)">
+                                                                            <path d="M0.221893 5.59202C0.00390625 6.01984 0.00390625 6.57989 0.00390625 7.7V8H24.0039V7.7C24.0039 6.5799 24.0039 6.01984 23.7859 5.59202C23.5942 5.21569 23.2882 4.90973 22.9119 4.71799C22.4841 4.5 21.924 4.5 20.8039 4.5H3.20391C2.0838 4.5 1.52375 4.5 1.09593 4.71799C0.719601 4.90973 0.41364 5.21569 0.221893 5.59202Z" fill="#191919"></path>
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.0039 10H0.00390625V16.3C0.00390625 17.4201 0.00390625 17.9802 0.221893 18.408C0.41364 18.7843 0.719601 19.0903 1.09593 19.282C1.52375 19.5 2.0838 19.5 3.20391 19.5H20.8039C21.924 19.5 22.4841 19.5 22.9119 19.282C23.2882 19.0903 23.5942 18.7843 23.7859 18.408C24.0039 17.9802 24.0039 17.4201 24.0039 16.3V10ZM17.5 13.5C16.6716 13.5 16 14.1716 16 15C16 15.8284 16.6716 16.5 17.5 16.5H19.5C20.3284 16.5 21 15.8284 21 15C21 14.1716 20.3284 13.5 19.5 13.5H17.5Z" fill="#191919"></path>
+                                                                        </g>
+                                                                        <defs><clipPath id="clip0_292_352"><rect width="24" height="24" fill="#191919"></rect></clipPath></defs>
+                                                                    </svg>
+                                                                    <span class="sc-bdVaJa keeDgr" display="block" style="margin-left: 10px;">
+                                                                        Credit/Debit Card
+                                                                    </span>
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                        <div class="sc-daURTG sKIzW">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                 fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                                 aria-hidden="false" style="flex-shrink: 0;">
+                                                                <title>Add New Payment Method</title>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.79289 18.7071C8.40237 18.3166 8.40237 17.6834 8.79289 17.2929L14.0858 12L8.79289 6.70711C8.40237 6.31658 8.40237 5.68342 8.79289 5.29289C9.18342 4.90237 9.81658 4.90237 10.2071 5.29289L16.2071 11.2929C16.3946 11.4804 16.5 11.7348 16.5 12C16.5 12.2652 16.3946 12.5196 16.2071 12.7071L10.2071 18.7071C9.81658 19.0976 9.18342 19.0976 8.79289 18.7071Z" fill="#494949"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="sc-bXGyLb jxvmAj" type="InsetBorder">
+                                                            <div class="sc-bRBYWo lptyCu">
+                                                                <hr class="sc-Rmtcm bjltfp">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                            <button class="sc-iERxws ibvcRf" role="radio" data-anchor-id="PaymentMethodAddPaypal">
+                                                <div class="sc-GMQeP bJthjP sc-bxivhb emnxOe" size="16">
+                                                    <div class="sc-exAgwC kSWlUm sc-htpNat dHgfLi">
+                                                        <span class="sc-bdVaJa cKetko" display="block">
+                                                            <div class="sc-jVODtj kJIDRN">
+                                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg"
+                                                                     aria-hidden="false" style="flex-shrink: 0;">
+                                                                    <title>paypal</title>
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.69989C0 6.57978 0 6.01973 0.217987 5.59191C0.810986 4.42808 2.06382 4.49989 3.2 4.49989H20.8C21.9362 4.49989 23.189 4.42808 23.782 5.59191C24 6.01973 24 6.57978 24 7.69989V16.2999C24 17.42 24 17.98 23.782 18.4079C23.5903 18.7842 23.2843 19.0902 22.908 19.2819C22.4802 19.4999 21.9201 19.4999 20.8 19.4999H3.2C2.0799 19.4999 1.51984 19.4999 1.09202 19.2819C0.715695 19.0902 0.409734 18.7842 0.217987 18.4079C0 17.98 0 17.42 0 16.2999V7.69989Z" fill="#1B3D92"></path>
+                                                                    <path opacity="0.68" fill-rule="evenodd" clip-rule="evenodd" d="M15.366 9.54035C15.4868 8.76233 15.3651 8.23306 14.9486 7.75349C14.4899 7.22565 13.6614 6.99951 12.6013 6.99951H9.5242C9.30759 6.99951 9.12305 7.15872 9.08937 7.37497L7.80795 15.5822C7.78274 15.7441 7.90668 15.8905 8.06884 15.8905H9.96852L9.83742 16.7304C9.81534 16.8721 9.92364 17.0001 10.0656 17.0001H11.6669C11.8564 17.0001 12.0178 16.8609 12.0473 16.6717L12.063 16.5894L12.3647 14.6573L12.3841 14.5505C12.4137 14.3615 12.575 14.222 12.7645 14.222H13.004C14.5553 14.222 15.7699 13.5855 16.1248 11.7444C16.2731 10.9752 16.1964 10.333 15.8042 9.88159C15.6857 9.7453 15.5381 9.63244 15.366 9.54035Z" fill="white"></path>
+                                                                    <path opacity="0.7" fill-rule="evenodd" clip-rule="evenodd" d="M15.366 9.54035C15.4868 8.76233 15.3651 8.23306 14.9486 7.75349C14.4899 7.22564 13.6614 6.99951 12.6013 6.99951H9.5242C9.30759 6.99951 9.12305 7.15872 9.08937 7.37497L7.80795 15.5822C7.78274 15.7441 7.90668 15.8905 8.06884 15.8905H9.96852L10.4457 12.834L10.4309 12.9298C10.4647 12.7137 10.6475 12.5543 10.8642 12.5543H11.7672C13.5404 12.5543 14.9289 11.8266 15.3345 9.72218C15.3466 9.66004 15.3568 9.59964 15.366 9.54035Z" fill="white"></path>
+                                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9584 9.55064C10.9787 9.42067 11.0614 9.31412 11.1726 9.26033C11.2231 9.23589 11.2797 9.22224 11.3389 9.22224H13.7509C14.0367 9.22224 14.3032 9.24118 14.5467 9.28081C14.6163 9.29212 14.684 9.30515 14.7499 9.31992C14.8156 9.33469 14.8796 9.35109 14.9414 9.36943C14.9724 9.37849 15.0027 9.38817 15.0327 9.39815C15.1523 9.43829 15.2637 9.48555 15.3662 9.54045C15.487 8.76243 15.3653 8.23316 14.9488 7.75359C14.4899 7.22564 13.6614 6.99951 12.6013 6.99951H9.5242C9.30759 6.99951 9.12305 7.15872 9.08937 7.37497L7.80795 15.5822C7.78274 15.7441 7.90668 15.8905 8.06884 15.8905H9.96852L10.4457 12.834L10.9584 9.55064Z" fill="white"></path>
+                                                                </svg>
+                                                                <span class="sc-bdVaJa keeDgr" display="block" style="margin-left: 10px;"> PayPal</span>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                    <div class="sc-daURTG sKIzW">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24"
+                                                             fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                             aria-hidden="false" style="flex-shrink: 0;">
+                                                            <title>Add New Payment Method</title>
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.79289 18.7071C8.40237 18.3166 8.40237 17.6834 8.79289 17.2929L14.0858 12L8.79289 6.70711C8.40237 6.31658 8.40237 5.68342 8.79289 5.29289C9.18342 4.90237 9.81658 4.90237 10.2071 5.29289L16.2071 11.2929C16.3946 11.4804 16.5 11.7348 16.5 12C16.5 12.2652 16.3946 12.5196 16.2071 12.7071L10.2071 18.7071C9.81658 19.0976 9.18342 19.0976 8.79289 18.7071Z" fill="#494949"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="sc-bXGyLb jxvmAj" type="InsetBorder">
+                                                        <div class="sc-bRBYWo lptyCu">
+                                                            <hr class="sc-Rmtcm bjltfp">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </button> 
+                                            <div class="sc-EHOje eYVlwT" size="16">
+                                                <button class="sc-eYDgzN bIZNHb"
+                                                        shape="Pill" size="16" type="button" kind="BUTTON/FLAT_PRIMARY"
+                                                        data-anchor-id="OpenPromoCodeModalButton">
+                                                    <div class="sc-jWBwVP cTwPx sc-bxivhb jmKqiD" size="16" kind="BUTTON/FLAT_PRIMARY">
+                                                        <div class="sc-EHOje NOdNn" size="12">
+                                                            <div class="sc-brqgnP iRcDeh">
+                                                                <span class="sc-bdVaJa BIHAZ" overflow="truncate" display="block">Add Promo Code</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Hr-Bottom" style=" height: 1px; width: 100%; background-color: rgb(231, 231, 231);"></div>
+
+                            <div class="col-md-4" style="padding: 20px 0px;">
+                                <p class="lable">
+                                    Summary
+                                </p>
+                            </div>
+                            <div class="col-md-8" style="padding: 20px 0px;">
+                                <br />
+                                <div class="Pro_informmation">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="~/images/0134fb8b-7787-4d68-aedd-36ac71ba3c30-retina-large.jpg" style="animation: 0.3s ease-in 0s 1 normal none running hlQDSK; height: 60px; width: 60px; margin-left: -16px; overflow: hidden; border-radius: 47px; margin-left: 0px;" />
+                                            <div class="bottom-left" style="position: absolute; bottom: 15px; left: 13px; background-color: black; color: #fff; font-weight: 700; border-radius: 33px; font-size: 11px; padding: 5px; ">x10</div>
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <p class="Product_Item"> Chicken Tikka Masala</p>
+                                                    <p class="Product_ItemPrice">$ 30.28</p>
+                                                </div>
+                                                <div class="col-md-2 DeleteBtn">
+                                                    <i class="fas fa-trash"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="Hr-Bottom"></div>
+                                </div>
+                                <div class="Pro_informmation">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="~/images/0134fb8b-7787-4d68-aedd-36ac71ba3c30-retina-large.jpg" style="animation: 0.3s ease-in 0s 1 normal none running hlQDSK; height: 60px; width: 60px; margin-left: -16px; overflow: hidden; border-radius: 47px; margin-left: 0px;" />
+                                            <div class="bottom-left" style="position: absolute; bottom: 15px; left: 13px; background-color: black; color: #fff; font-weight: 700; border-radius: 33px; font-size: 11px; padding: 5px; ">x10</div>
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <p class="Product_Item"> Chicken Tikka Masala</p>
+                                                    <p class="Product_ItemPrice">$ 30.28</p>
+                                                </div>
+                                                <div class="col-md-2 DeleteBtn">
+                                                    <i class="fas fa-trash"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="Hr-Bottom"></div>
+                                </div>
+                                <div class="Pro_informmation">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="~/images/0134fb8b-7787-4d68-aedd-36ac71ba3c30-retina-large.jpg" style="animation: 0.3s ease-in 0s 1 normal none running hlQDSK; height: 60px; width: 60px; margin-left: -16px; overflow: hidden; border-radius: 47px; margin-left: 0px;" />
+                                            <div class="bottom-left" style="position: absolute; bottom: 15px; left: 13px; background-color: black; color: #fff; font-weight: 700; border-radius: 33px; font-size: 11px; padding: 5px; ">x10</div>
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <p class="Product_Item"> Chicken Tikka Masala</p>
+                                                    <p class="Product_ItemPrice">$ 30.28</p>
+                                                </div>
+                                                <div class="col-md-2 DeleteBtn">
+                                                    <i class="fas fa-trash"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="Hr-Bottom"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-2"></div>
+
+                </div>
+            </div>
+            <div class="col-md-3" style="border-left: 2px solid rgb(214, 214, 214); border-top: 2px solid rgb(214, 214, 214); ">
+                <div class="col-12">
+                    <div class="alert alert-primary" role="alert" style=" background-color: rgb(254, 255, 88); border-radius: 4px;">
+                        Sorry! This address is out of the delivery area for this store.
+                    </div>
+                    <div class="alert alert-primary" role="alert" style=" background-color: rgb(254, 255, 88); border-radius: 4px;">
+                        Please add or select valid payment method
+                    </div>
+                    <button type="submit" class="btn btn-block PaceOrder_Button">Place Order </button>
+                </div>
+                <br />
+                <div class="col-12">
+                    <div class="row" style="margin: 12px 0px;">
+                        <div class="col-6 Details text-left">Subtotal </div>
+                        <div class="col-6 Details text-right"> $39.85 </div>
+                    </div>
+                    <div class="row" style="margin: 12px 0px;">
+                        <div class="col-6 Details text-left">  Delivery Fee </div>
+                        <div class="col-6 Details text-right"> $2.99 </div>
+                    </div>
+                    <div class="row" style="margin: 12px 0px;">
+                        <div class="col-6 Details text-left"> Fees & Estimated Tax </div>
+                        <div class="col-6 Details text-right"> $6.63 </div>
+                    </div>
+
+                    <div id="Hr-Bottom" style=" height: 1px; width: 100%; background-color: rgb(231, 231, 231);"></div>
+                </div>
+                <br />
+                <div class="col-12">
+                    <div class="row" style="margin: 12px 0px;">
+                        <div class="col-6 Details">Total </div>
+                        <div class="col-6 Details"> $61.47 </div>
+                        <p class="description_terms">By clicking Place Order, you agree to our Terms and Conditions and Privacy statement</p>
+                    </div>
+                    <div id="Hr-Bottom" style=" height: 1px; width: 100%; background-color: rgb(231, 231, 231);"></div>
+                </div>
+                <br />
+                <br />
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+@*<div class="col-md-3" style="border-left: 2px solid rgb(214, 214, 214); border-top: 2px solid rgb(214, 214, 214); ">
+        <div class="sc-bxivhb emnxOe" size="16">
+            <div class="sc-ccLTTT hgqKUl">
+                <svg height="188px" width="245px" x="0px" y="0px" viewBox="0 0 245 188">
+                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="71.455" y1="165.089" x2="192.844" y2="165.089"></line>
+                    <path fill="#f5f5f5" d="M216.727,132.641L48.052,120.447c-2.056-0.149-3.602-1.936-3.453-3.992l6.549-90.6 c0.149-2.056,1.936-3.602,3.992-3.453l168.675,12.193c2.056,0.149,3.602,1.936,3.453,3.992l-6.549,90.6 C220.57,131.243,218.783,132.789,216.727,132.641z"></path>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.691 8.2899)" fill="#fff" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="122.079" cy="120.972" rx="56.622" ry="56.622"></ellipse>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -1.8699 11.8092)" fill="#fff" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="178.449" cy="34.309" rx="24.308" ry="24.308"></ellipse>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.691 8.2899)" fill="#e1e2e3" cx="122.079" cy="120.972" rx="44.116" ry="44.116"></ellipse>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -1.8709 11.7787)" fill="#dbdcdd" cx="177.984" cy="34.309" rx="14.859" ry="14.859"></ellipse>
+                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="101.063" y1="142.031" x2="111.25" y2="129.708"></line>
+                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="100.04" y1="126.498" x2="106.806" y2="117.905"></line>
+                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="93.493" y1="119.88" x2="100.259" y2="111.288"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="112.111" y1="128.837" x2="115.494" y2="124.541"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="106.435" y1="149.374" x2="116.793" y2="136.189"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="96.533" y1="147.463" x2="103.299" y2="138.87"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="91.062" y1="138.616" x2="104.551" y2="120.781"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="86.728" y1="128.473" x2="93.493" y2="119.88"></line>
+                    <path fill="#fff" d="M118.151,87.414L118.151,87.414l-7.928,5.705l0.156,0.682c-2.005,2.087-2.971,4.953-2.319,7.798  c0.823,3.594,3.979,6.1,7.731,6.556l4.934,1.195c0.828,0.284,1.692,0.496,2.581,0.625l0.013,0.003l0-0.001 c1.763,0.255,3.624,0.194,5.496-0.234c7.448-1.706,12.229-8.576,10.679-15.344c-1.55-6.769-8.845-10.873-16.293-9.167 C121.329,85.661,119.627,86.417,118.151,87.414z"></path>
+                    <line fill="none" stroke="#cfcfcf" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="85.806" y1="114.491" x2="92.572" y2="105.898"></line>
+                    <line fill="#464646" stroke="#fff" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="90.971" y1="107.727" x2="101.61" y2="94.701"></line>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -6.1314 8.5654)" fill="none" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="127.045" cy="97.419" rx="5.44" ry="5.44"></ellipse>
+                    <line fill="#464646" stroke="#e8e8e8" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="10" y1="87.846" x2="125.988" y2="39.952"></line>
+                    <line fill="#464646" stroke="#e8e8e8" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="12.984" y1="94.287" x2="128.972" y2="46.392"></line>
+                    <rect x="131.383" y="126.172" transform="matrix(0.8169 0.5768 -0.5768 0.8169 106.0643 -53.8047)" fill="none" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="12.767" height="27.922"></rect>
+                    <polygon fill="#e1e2e3" stroke="#c9c9c9" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="134.875,136.109 127.726,125.53 150.86,109.896 158.009,120.474 "></polygon>
+                    <ellipse transform="matrix(0.9978 -0.0658 0.0658 0.9978 -7.636 2.7278)" fill="none" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="37.618" cy="117.356" rx="7.819" ry="7.819"></ellipse>
+                    <path fill="#dddedf" d="M63.732,52.293l-40.911-7.601c-1.614-0.3-2.68-1.851-2.38-3.466l2.824-15.199 c0.3-1.614,1.851-2.68,3.466-2.38l40.911,7.601c1.614,0.3,2.68,1.851,2.38,3.466l-2.824,15.199 C66.898,51.527,65.346,52.593,63.732,52.293z"></path>
+                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="29.798" y1="46.215" x2="33.644" y2="25.158"></line>
+                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="39.354" y1="48.498" x2="43.199" y2="27.442"></line>
+                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="48.909" y1="49.563" x2="52.755" y2="28.506"></line>
+                    <line fill="none" stroke="#ececec" stroke-width="4.8775" stroke-linejoin="round" stroke-miterlimit="10" x1="58.465" y1="51.846" x2="62.31" y2="30.789"></line>
+                    <circle fill="#eaeaea" cx="48.883" cy="140.16" r="3.631"></circle>
+                    <circle fill="#eaeaea" cx="200.121" cy="96.085" r="3.631"></circle>
+                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="204.456" y1="77.307" x2="235" y2="77.307"></line>
+                    <line fill="#464646" stroke="#eaeaea" stroke-width="4.8775" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="184.849" y1="151.705" x2="200.121" y2="151.705"></line>
+                </svg>
+            </div>
+            <span class="sc-bdVaJa ekbGRa" display="block">Your cart is empty</span>
+            <span class="sc-bdVaJa ekbGRa" display="block">Add items to get started</span>
+        </div>
+    </div>*@
+
+@*<div class="Checkout row" style="background-color: #eb5545;">
+        <div class="col-6 text-left Checkout_class">Checkout</div>
+        <div class="col-6 text-right Checkout_class"> $ 350.20  </div>
+    </div>
+    <div id="Hr-Bottom" style=""></div>*@

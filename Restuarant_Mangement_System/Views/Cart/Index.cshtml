@@ -1,0 +1,59 @@
+﻿@model Res.Data.ViewModels.CartVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Cart Page </h3>
+
+
+@if (Model.cart != null)
+{
+     <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        @foreach (var item in Model.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">Remove</a></td>
+                <td>@item.Product.Id</td>
+                <td>@item.Product.Name</td>
+                <td><img src="~/images/@item.Product.ProductImg" width="60" /> </td>
+                <td>@item.Product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.Product.Price * item.Quantity)   </td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td> 
+                @*@( Model.cart.Sum(item => item.Product.Price * item.Quantity);)*@
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a asp-controller="product" asp-action="index">Continue Shopping</a>
+
+
+}
+else
+{
+
+    @*@Html.RenderPartial("CartSummary", "ShoppingCart")*@
+    <h1> No Item in Cart ... </h1>
+}
+
+
+
+
+
+
+
+
+

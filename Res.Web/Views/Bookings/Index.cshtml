@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Res.Data.Entities.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tables)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpecialEvent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfPeople)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingType.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tables.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpecialEvent.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPeople.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingStatus.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

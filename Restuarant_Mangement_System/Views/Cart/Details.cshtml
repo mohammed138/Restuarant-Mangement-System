@@ -1,0 +1,64 @@
+﻿@model Res.Data.ViewModels.DetailsVM
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+ 
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ShortDes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.ShortDes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.LongDes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.LongDes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.ProductImg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.ProductImg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.CategoryId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Product.CategoryId)
+        </dd>
+      
+    </dl>
+</div>
+<div>
+
+    @if (Model.IsExistInCart == true)
+    {
+        <a asp-action="Remove" asp-route-id="@Model.Product.Id">Remove From Cart</a>  
+    }
+    else 
+    { 
+       <a asp-action="Edit" asp-route-id="@Model.Product.Id">Add to cart</a>  
+    }
+    
+    <a asp-action="Edit" asp-route-id="@Model.Product.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
